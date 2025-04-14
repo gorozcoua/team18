@@ -28,7 +28,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnAlbums.setOnClickListener {
-
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, AlbumFragment())
+                .commit()
         }
     }
 }
