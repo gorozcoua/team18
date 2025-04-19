@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.api_libs.repositories.MusicianRepository
 import com.example.vinilos.models.Musician
-import com.example.vinilos.network.NetworkServiceAdapter
 
 class MusicianViewModel(application: Application) : AndroidViewModel(application) {
 
