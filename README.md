@@ -3,11 +3,10 @@
 Esta es una aplicación Android desarrollada para gestionar una colección de vinilos.
 
 ## Requisitos Previos
-
-- Android Studio (versión más reciente recomendada)
-- JDK 11 o superior
-- Gradle 8.0 o superior
-- Un dispositivo Android o emulador con API level 21 o superior
+-   Android Studio actualizado
+-   Seleccionar Gradle JDK Jetbrains Runtime 21.0.5
+-   Versión de Android : SDK API 21 (Lollipop Android 5.0)
+-   API: https://backvynils-q6yc.onrender.com 
 
 ## Configuración del Entorno de Desarrollo
 
