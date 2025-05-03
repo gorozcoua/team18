@@ -11,8 +11,11 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.vinilos.models.Album
 import com.example.vinilos.models.Musician
+import com.example.vinilos.models.Track
 import org.json.JSONArray
-import org.json.JSONObject
+import kotlin.coroutines.suspendCoroutine
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
 
 class NetworkServiceAdapter constructor(context: Context) {
     companion object{
@@ -29,37 +32,68 @@ class NetworkServiceAdapter constructor(context: Context) {
         // applicationContext keeps you from leaking the Activity or BroadcastReceiver if someone passes one in.
         Volley.newRequestQueue(context.applicationContext)
     }
-    fun getMusicians(onComplete:(resp:List<Musician>)->Unit, onError: (error:VolleyError)->Unit){
+    suspend fun getMusicians(): List<Musician> = suspendCoroutine { cont ->
         requestQueue.add(getRequest("musicians",
             Response.Listener<String> { response ->
                 val resp = JSONArray(response)
                 val list = mutableListOf<Musician>()
                 for (i in 0 until resp.length()) {
                     val item = resp.getJSONObject(i)
-                    list.add(i, Musician(id = item.getInt("id"),name = item.getString("name"), image = item.getString("image")))
+                    val musician = Musician(
+                        id = item.getInt("id"),
+                        name = item.getString("name"),
+                        image = item.getString("image")
+                    )
+                    list.add(musician)
                 }
-                onComplete(list)
+                cont.resume(list)
             },
             Response.ErrorListener {
-                onError(it)
-            }))
+                cont.resumeWithException(it)
+            }
+        ))
     }
 
-    fun getAlbums(onComplete:(resp:List<Album>)->Unit, onError: (error:VolleyError)->Unit){
+
+    suspend fun getAlbums() = suspendCoroutine<List<Album>>{ cont->
         requestQueue.add(getRequest("albums",
             Response.Listener<String> { response ->
                 val resp = JSONArray(response)
                 val list = mutableListOf<Album>()
-                for (i in 0 until resp.length()) {
+                for (i in 0 until resp.length()) {//inicializado como variable de retorno
                     val item = resp.getJSONObject(i)
-                    list.add(i, Album(albumId = item.getInt("id"),name = item.getString("name"), cover = item.getString("cover"), recordLabel = item.getString("recordLabel"), releaseDate = item.getString("releaseDate"), genre = item.getString("genre"), description = item.getString("description")))
+                    val album = Album(albumId = item.getInt("id"),name = item.getString("name"), cover = item.getString("cover"), recordLabel = item.getString("recordLabel"), releaseDate = item.getString("releaseDate"), genre = item.getString("genre"), description = item.getString("description"))
+                    list.add(i, album) //se agrega a medida que se procesa la respuesta
                 }
-                onComplete(list)
+                cont.resume(list)
             },
             Response.ErrorListener {
-                onError(it)
+                cont.resumeWithException(it)
             }))
     }
+
+    suspend fun getTracksForAlbum(albumId: Int): List<Track> = suspendCoroutine { cont ->
+        requestQueue.add(getRequest("albums/$albumId/tracks",
+            Response.Listener<String> { response ->
+                val jsonArray = JSONArray(response)
+                val tracks = mutableListOf<Track>()
+                for (i in 0 until jsonArray.length()) {
+                    val item = jsonArray.getJSONObject(i)
+                    val track = Track(
+                        id = item.getInt("id"),
+                        name = item.getString("name"),
+                        duration = item.getString("duration")
+                    )
+                    tracks.add(track)
+                }
+                cont.resume(tracks)
+            },
+            Response.ErrorListener {
+                cont.resumeWithException(it)
+            }
+        ))
+    }
+
 
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
         return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)

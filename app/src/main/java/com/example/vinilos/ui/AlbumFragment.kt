@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
+import com.example.vinilos.models.Album
 import com.example.vinilos.ui.adapters.AlbumAdapter
 import com.example.vinilos.viewmodels.AlbumViewModel
 
@@ -29,7 +30,11 @@ class AlbumFragment : Fragment() {
         // Initialize UI elements
         recyclerView = view.findViewById(R.id.album_list)
         errorMessage = view.findViewById(R.id.error_message)
-        adapter = AlbumAdapter()
+
+        // Adapter with click listener
+        adapter = AlbumAdapter { selectedAlbum ->
+            openAlbumDetailFragment(selectedAlbum)
+        }
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
@@ -62,4 +67,25 @@ class AlbumFragment : Fragment() {
             }
         }
     }
+
+    private fun openAlbumDetailFragment(album: Album) {
+        val bundle = Bundle().apply {
+            putInt("albumId", album.albumId)
+            putString("name", album.name)
+            putString("cover", album.cover)
+            putString("releaseDate", album.releaseDate)
+            putString("description", album.description)
+            putString("genre", album.genre)
+            putString("recordLabel", album.recordLabel)
+        }
+
+        val fragment = AlbumDetailFragment()
+        fragment.arguments = bundle
+
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
 }

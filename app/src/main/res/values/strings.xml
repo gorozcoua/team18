@@ -17,4 +17,7 @@
     <string name="previous">Previous</string>
     <string name="title_albums">Albums</string>
     <string name="network_error">Network Error</string>
+
+    <string name="album_cover">Portada del álbum</string>
+
 </resources>

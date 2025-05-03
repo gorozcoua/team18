@@ -13,18 +13,20 @@
         android:gravity="center">
 
         <Button
+            android:id="@+id/btn_albums"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Álbumes" />
+
+        <Button
             android:id="@+id/btn_musicians"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Músicos" />
 
-        <Button
-            android:id="@+id/btn_albums"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Álbumes" />
+
     </LinearLayout>
 
     <FrameLayout
