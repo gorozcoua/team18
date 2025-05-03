@@ -7,8 +7,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.vinilos.R
+import com.example.vinilos.ui.adapters.TrackAdapter
+import com.example.vinilos.viewmodels.AlbumDetailViewModel
 
 class AlbumDetailFragment : Fragment() {
 
@@ -18,6 +23,10 @@ class AlbumDetailFragment : Fragment() {
     private lateinit var albumLabel: TextView
     private lateinit var albumDescription: TextView
     private lateinit var albumReleaseDate: TextView
+    private lateinit var viewModel: AlbumDetailViewModel
+    private lateinit var tracksRecyclerView: RecyclerView
+    private lateinit var trackAdapter: TrackAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +42,21 @@ class AlbumDetailFragment : Fragment() {
         albumReleaseDate = view.findViewById(R.id.album_detail_release_date)
 
         loadAlbumFromArguments()
+
+        tracksRecyclerView = view.findViewById(R.id.tracks_recycler_view)
+        tracksRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        trackAdapter = TrackAdapter(emptyList())
+        tracksRecyclerView.adapter = trackAdapter
+
+        val albumId = arguments?.getInt("albumId") ?: return view
+
+        viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application))[AlbumDetailViewModel::class.java]
+        viewModel.loadTracks(albumId)
+
+        viewModel.tracks.observe(viewLifecycleOwner) {
+            trackAdapter.updateTracks(it)
+        }
+
 
         return view
     }
