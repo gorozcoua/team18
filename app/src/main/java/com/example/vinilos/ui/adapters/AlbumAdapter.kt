@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.vinilos.R
 import com.example.vinilos.models.Album
 
-class AlbumAdapter : RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder>() {
+class AlbumAdapter(private val onAlbumClick: (Album) -> Unit) : RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder>() {
 
     private var albums: List<Album> = listOf()
 
@@ -42,6 +42,7 @@ class AlbumAdapter : RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder>() {
         // Acción al hacer clic en el botón
         holder.albumButton.setOnClickListener {
             // Aquí puedes hacer algo, como navegar o mostrar detalles
+            onAlbumClick(album)
         }
     }
 
