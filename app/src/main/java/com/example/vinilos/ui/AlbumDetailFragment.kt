@@ -70,25 +70,4 @@ class AlbumDetailFragment : Fragment() {
 
         return view
     }
-
-
-    private fun loadAlbumFromArguments() {
-        val args = arguments
-        if (args != null) {
-            val name = args.getString("name", "")
-            val cover = args.getString("cover", "")
-            val releaseDate = args.getString("releaseDate", "")
-            val description = args.getString("description", "")
-            val genre = args.getString("genre", "")
-            val recordLabel = args.getString("recordLabel", "")
-
-            Glide.with(this).load(cover).into(albumImage)
-
-            albumName.text = name
-            albumGenre.text = "Género: $genre"
-            albumLabel.text = "Sello: $recordLabel"
-            albumDescription.text = description
-            albumReleaseDate.text = "Lanzamiento: ${releaseDate.take(10)}" // solo YYYY-MM-DD
-        }
-    }
 }
