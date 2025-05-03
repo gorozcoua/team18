@@ -4,7 +4,7 @@ Esta es una aplicación Android desarrollada para gestionar una colección de vi
 
 ## Requisitos Previos
 -   Android Studio actualizado
--   Seleccionar Gradle JDK Jetbrains Runtime 21.0.5
+-   Seleccionar Gradle JDK 17 (Oracle OpenJDK 17.0.12)
 -   Versión de Android : SDK API 21 (Lollipop Android 5.0)
 -   API: https://backvynils-q6yc.onrender.com 
 
