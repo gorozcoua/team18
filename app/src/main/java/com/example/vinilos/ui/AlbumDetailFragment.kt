@@ -14,6 +14,9 @@ import com.bumptech.glide.Glide
 import com.example.vinilos.R
 import com.example.vinilos.ui.adapters.TrackAdapter
 import com.example.vinilos.viewmodels.AlbumDetailViewModel
+import com.example.vinilos.models.Album
+import com.example.vinilos.ui.adapters.AlbumDetailAdapter
+
 
 class AlbumDetailFragment : Fragment() {
 
@@ -34,15 +37,24 @@ class AlbumDetailFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_album_detail, container, false)
 
-        albumImage = view.findViewById(R.id.album_detail_image)
-        albumName = view.findViewById(R.id.album_detail_name)
-        albumGenre = view.findViewById(R.id.album_detail_genre)
-        albumLabel = view.findViewById(R.id.album_detail_label)
-        albumDescription = view.findViewById(R.id.album_detail_description)
-        albumReleaseDate = view.findViewById(R.id.album_detail_release_date)
+        val albumDetailAdapter = AlbumDetailAdapter(view)
 
-        loadAlbumFromArguments()
+        val args = arguments
+        if (args != null) {
+            val album = Album(
+                albumId = args.getInt("albumId", 0),
+                name = args.getString("name", ""),
+                cover = args.getString("cover", ""),
+                releaseDate = args.getString("releaseDate", ""),
+                description = args.getString("description", ""),
+                genre = args.getString("genre", ""),
+                recordLabel = args.getString("recordLabel", ""),
+                tracks = emptyList(),
+            )
+            albumDetailAdapter.bind(album)
+        }
 
+        // Setup RecyclerView for tracks
         tracksRecyclerView = view.findViewById(R.id.tracks_recycler_view)
         tracksRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         trackAdapter = TrackAdapter(emptyList())
@@ -52,14 +64,13 @@ class AlbumDetailFragment : Fragment() {
 
         viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application))[AlbumDetailViewModel::class.java]
         viewModel.loadTracks(albumId)
-
         viewModel.tracks.observe(viewLifecycleOwner) {
             trackAdapter.updateTracks(it)
         }
 
-
         return view
     }
+
 
     private fun loadAlbumFromArguments() {
         val args = arguments
