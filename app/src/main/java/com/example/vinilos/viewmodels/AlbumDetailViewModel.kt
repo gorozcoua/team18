@@ -13,6 +13,7 @@ import kotlinx.coroutines.withContext
 import androidx.lifecycle.viewModelScope
 import com.example.vinilos.models.Track
 import com.example.vinilos.network.NetworkServiceAdapter
+import com.example.vinilos.repositories.AlbumDetailRepository
 import kotlinx.coroutines.launch
 
 class AlbumDetailViewModel(application: Application) : AndroidViewModel(application) {
@@ -26,7 +27,8 @@ class AlbumDetailViewModel(application: Application) : AndroidViewModel(applicat
     fun loadTracks(albumId: Int) {
         viewModelScope.launch {
             try {
-                val trackList = NetworkServiceAdapter.getInstance(getApplication()).getTracksForAlbum(albumId)
+                val repository = AlbumDetailRepository(getApplication())
+                val trackList = repository.refreshTracksData(albumId)
                 _tracks.postValue(trackList)
                 _error.postValue(false)
             } catch (e: Exception) {
