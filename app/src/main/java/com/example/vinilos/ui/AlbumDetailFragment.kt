@@ -38,8 +38,7 @@ class AlbumDetailFragment : Fragment() {
             releaseDate = args?.getString("releaseDate").orEmpty(),
             description = args?.getString("description").orEmpty(),
             genre = args?.getString("genre").orEmpty(),
-            recordLabel = args?.getString("recordLabel").orEmpty(),
-            tracks = emptyList()
+            recordLabel = args?.getString("recordLabel").orEmpty()
         )
 
         // Cargar detalles del álbum en vista
