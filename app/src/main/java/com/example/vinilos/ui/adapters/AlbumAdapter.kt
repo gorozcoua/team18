@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.example.vinilos.R
 import com.example.vinilos.models.Album
 
@@ -34,9 +36,11 @@ class AlbumAdapter(private val onAlbumClick: (Album) -> Unit) : RecyclerView.Ada
         val album = albums[position]
         holder.albumButton.text = album.name
 
-        // Cargar imagen desde URL con Glide
+        // Cargar imagen desde URL con Glide con estrategia de cache en disco
         Glide.with(holder.itemView.context)
             .load(album.cover)
+            .apply(RequestOptions()
+            .diskCacheStrategy(DiskCacheStrategy.ALL))
             .into(holder.albumImage)
 
         // Acción al hacer clic en el botón

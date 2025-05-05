@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.example.vinilos.R
 import com.example.vinilos.models.Musician
 
@@ -37,6 +39,8 @@ class MusicianAdapter : RecyclerView.Adapter<MusicianAdapter.MusicianViewHolder>
         // Cargar imagen desde URL con Glide
         Glide.with(holder.itemView.context)
             .load(musician.image)
+            .apply(RequestOptions()
+            .diskCacheStrategy(DiskCacheStrategy.ALL))
             .into(holder.musicianImage)
 
         // Acción al hacer clic en el botón (opcional)
