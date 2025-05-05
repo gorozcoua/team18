@@ -10,17 +10,32 @@
           <theme>@style/Theme.Vinilos</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_album_detail.xml">
+        <config>
+          <theme>@style/Theme.Vinilos</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6321a86-ec9b-407e-8105-59148c426c4d" name="Changes" comment="release 27042025">
-      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/example/vinilos/ui/AlbumBasicLoadingTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/example/vinilos/ui/MusicianBasicLoadingTest.kt" afterDir="false" />
+    <list default="true" id="f6321a86-ec9b-407e-8105-59148c426c4d" name="Changes" comment="release semana 5">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_04_2025_4_19_p_m___Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_04_2025_4_19_p_ m__[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27_04_2025_4_19_p_ m__[Changes]1/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/models/Track.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/network/CacheManager.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/repositories/AlbumDetailRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/ui/AlbumDetailFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/ui/adapters/AlbumDetailAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/ui/adapters/TrackAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/viewmodels/AlbumDetailViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_album_detail.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_track.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" afterDir="false" />
@@ -28,11 +43,30 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/androidTestResultsUserPreferences.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/androidTestResultsUserPreferences.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_04_2025_4_47_p_m___Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_04_2025_4_47_p_ m__[Changes]/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_04_2025_4_47_p_ m__[Changes]/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_04_2025_4_47_p_ m__[Changes]/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_04_2025_4_47_p_ m__[Changes]/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_04_2025_4_47_p_ m__[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/network/NetworkServiceAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/network/NetworkServiceAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/repositories/AlbumRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/repositories/AlbumRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/repositories/MusicianRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/repositories/MusicianRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/ui/AlbumFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/ui/AlbumFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/ui/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/ui/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/ui/adapters/AlbumAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/ui/adapters/AlbumAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/ui/adapters/MusicianAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/ui/adapters/MusicianAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/viewmodels/AlbumViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/viewmodels/AlbumViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/viewmodels/MusicianViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/viewmodels/MusicianViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +102,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Class" />
+        <option value="layoutResourceFile" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -75,7 +111,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="release/semana5" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -102,7 +138,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Android App.app.executor": "Debug",
+    "Android App.app.executor": "Run",
     "Android Instrumented Tests.AlbumBasicLoadingTest.executor": "Run",
     "Android Instrumented Tests.AlbumLoadingTest.executor": "Run",
     "Android Instrumented Tests.AlbumNetworkSuccessTest.executor": "Run",
@@ -115,9 +151,10 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "hotfix/positivetests",
+    "git-widget-placeholder": "Merging main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/gerar/AndroidStudioProjects/team18"
+    "last_opened_file_path": "C:/Users/gerar/AndroidStudioProjects/team18",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -129,7 +166,7 @@
       <recent name="com.example.vinilos.repositories" />
     </key>
   </component>
-  <component name="RunManager" selected="Android Instrumented Tests.AlbumNoNetworkTest">
+  <component name="RunManager" selected="Android App.app">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="vinilos.app" />
       <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
@@ -514,11 +551,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Android Instrumented Tests.AlbumsLoadingTest" />
         <item itemvalue="Android Instrumented Tests.AlbumNoNetworkTest" />
-        <item itemvalue="Android Instrumented Tests.AlbumBasicLoadingTest" />
         <item itemvalue="Android Instrumented Tests.AlbumNetworkSuccessTest" />
         <item itemvalue="Android Instrumented Tests.AlbumLoadingTest" />
-        <item itemvalue="Android Instrumented Tests.AlbumsLoadingTest" />
+        <item itemvalue="Android Instrumented Tests.AlbumBasicLoadingTest" />
       </list>
     </recent_temporary>
   </component>
@@ -563,7 +600,55 @@
       <option name="project" value="LOCAL" />
       <updated>1745787526253</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="merge positive tests">
+      <option name="closed" value="true" />
+      <created>1746060637188</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1746060637188</updated>
+    </task>
+    <task id="LOCAL-00006" summary="HU002 init">
+      <option name="closed" value="true" />
+      <created>1746230757145</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1746230757146</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Cambiar inicio">
+      <option name="closed" value="true" />
+      <created>1746232182159</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1746232182159</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Cache init">
+      <option name="closed" value="true" />
+      <created>1746395874499</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1746395874499</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Cache fin">
+      <option name="closed" value="true" />
+      <created>1746396583326</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1746396583326</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Refactor">
+      <option name="closed" value="true" />
+      <created>1746397111854</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746397111854</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -582,19 +667,27 @@
     <MESSAGE value="Develop inicial" />
     <MESSAGE value="HU003 repository" />
     <MESSAGE value="release 27042025" />
-    <option name="LAST_COMMIT_MESSAGE" value="release 27042025" />
+    <MESSAGE value="merge positive tests" />
+    <MESSAGE value="HU002 init" />
+    <MESSAGE value="Cambiar inicio" />
+    <MESSAGE value="Cache init" />
+    <MESSAGE value="Cache fin" />
+    <MESSAGE value="Refactor" />
+    <MESSAGE value="Glide manejo de cache" />
+    <MESSAGE value="release semana 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="release semana 5" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
       <map>
         <entry key="com.example.vinilos">
           <value>
-            <CheckInfo lastCheckTimestamp="1744592834160" />
+            <CheckInfo lastCheckTimestamp="1746229190355" />
           </value>
         </entry>
         <entry key="com.example.vinilos.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1744592834160" />
+            <CheckInfo lastCheckTimestamp="1746229190372" />
           </value>
         </entry>
       </map>
