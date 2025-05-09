@@ -21,7 +21,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6321a86-ec9b-407e-8105-59148c426c4d" name="Changes" comment="Glide manejo de cache" />
+    <list default="true" id="f6321a86-ec9b-407e-8105-59148c426c4d" name="Changes" comment="HUOO1 manejo de cache" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +39,12 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -65,7 +71,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="release/semana5" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -105,7 +111,7 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "feat/HU001__cache",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/gerar/AndroidStudioProjects/team18",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
@@ -602,7 +608,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746397111854</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="HUOO1 manejo de cache">
+      <option name="closed" value="true" />
+      <created>1746751187317</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1746751187317</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -628,7 +642,8 @@
     <MESSAGE value="Cache fin" />
     <MESSAGE value="Refactor" />
     <MESSAGE value="Glide manejo de cache" />
-    <option name="LAST_COMMIT_MESSAGE" value="Glide manejo de cache" />
+    <MESSAGE value="HUOO1 manejo de cache" />
+    <option name="LAST_COMMIT_MESSAGE" value="HUOO1 manejo de cache" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
