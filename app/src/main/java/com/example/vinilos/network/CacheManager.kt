@@ -1,6 +1,7 @@
 package com.example.vinilos.network
 
 import android.content.Context
+import com.example.vinilos.models.Album
 import com.example.vinilos.models.Track
 
 class CacheManager (context: Context){
@@ -16,6 +17,7 @@ class CacheManager (context: Context){
     }
 
     private var tracks: HashMap<Int, List<Track>> = hashMapOf()
+    private var albums: HashMap<String, List<Album>> = hashMapOf()
 
     fun addTracks(albumId: Int, trackList: List<Track>) {
         if (!tracks.containsKey(albumId)) {
@@ -29,5 +31,15 @@ class CacheManager (context: Context){
 
     fun contains(albumId: Int): Boolean {
         return tracks.containsKey(albumId)
+    }
+
+    fun addAlbums(albumList: List<Album>) {
+        if (!albums.containsKey("albums")) {
+            albums["albums"] = albumList
+        }
+    }
+
+    fun getAlbums(): List<Album> {
+        return albums["albums"] ?: emptyList()
     }
 }
