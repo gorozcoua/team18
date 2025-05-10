@@ -1,5 +1,6 @@
 package com.example.vinilos.ui.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,7 @@ class AlbumAdapter(private val onAlbumClick: (Album) -> Unit) : RecyclerView.Ada
 
     private var albums: List<Album> = listOf()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setAlbums(albumList: List<Album>) {
         albums = albumList
         notifyDataSetChanged()

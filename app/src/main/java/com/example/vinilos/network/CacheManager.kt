@@ -31,10 +31,6 @@ class CacheManager (context: Context){
         return tracks[albumId] ?: emptyList()
     }
 
-    fun contains(albumId: Int): Boolean {
-        return tracks.containsKey(albumId)
-    }
-
     fun addAlbums(albumList: List<Album>) {
         if (!albums.containsKey("albums")) {
             albums["albums"] = albumList
