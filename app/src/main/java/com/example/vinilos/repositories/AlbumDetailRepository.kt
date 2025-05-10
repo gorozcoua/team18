@@ -8,7 +8,7 @@ import com.example.vinilos.network.CacheManager
 
 class AlbumDetailRepository(val application: Application) {
 
-    suspend fun refreshTracksData(albumId: Int): List<Track> {
+    suspend fun refreshData(albumId: Int): List<Track> {
         val cache = CacheManager.getInstance(application.applicationContext)
         val potentialResp = cache.getTracks(albumId)
 
