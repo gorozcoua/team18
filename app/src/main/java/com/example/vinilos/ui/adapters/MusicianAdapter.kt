@@ -1,5 +1,6 @@
 package com.example.vinilos.ui.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,7 @@ class MusicianAdapter : RecyclerView.Adapter<MusicianAdapter.MusicianViewHolder>
 
     private var musicians: List<Musician> = listOf()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setMusicians(musicianList: List<Musician>) {
         musicians = musicianList
         notifyDataSetChanged()
