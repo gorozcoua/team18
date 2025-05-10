@@ -14,7 +14,7 @@ class MusicianRepository (val application: Application){
         return if (potentialResp.isEmpty()) {
             Log.d("Track Cache decision", "get from network")
             val musicians = NetworkServiceAdapter.getInstance(application)
-                .getMusicians() // ← Debes tener un método suspend
+                .getMusicians()
             cache.addMusicians(musicians)
             musicians
         } else {

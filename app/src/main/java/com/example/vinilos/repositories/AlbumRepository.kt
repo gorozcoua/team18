@@ -14,7 +14,7 @@ class AlbumRepository (val application: Application){
         return if (potentialResp.isEmpty()) {
             Log.d("Track Cache decision", "get from network")
             val albums = NetworkServiceAdapter.getInstance(application)
-                .getAlbums() // ← Debes tener un método suspend
+                .getAlbums()
             cache.addAlbums(albums)
             albums
         } else {
