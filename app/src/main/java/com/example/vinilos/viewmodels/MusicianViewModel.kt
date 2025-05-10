@@ -1,6 +1,7 @@
 package com.example.vinilos.viewmodels
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -36,17 +37,16 @@ class MusicianViewModel(application: Application) : AndroidViewModel(application
     }
 
     private fun refreshDataFromNetwork() {
-        try {
-            viewModelScope.launch(Dispatchers.Default) {
-                withContext(Dispatchers.IO) {
-                    val data = musicianRepository.refreshData()
-                    _musicians.postValue(data) // Assuming you have this LiveData
-                }
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val data = musicianRepository.refreshData()
+                _musicians.postValue(data)
                 _eventNetworkError.postValue(false)
                 _isNetworkErrorShown.postValue(false)
+            } catch (e: Exception) {
+                Log.e("NetworkError", "Error getting albums", e)
+                _eventNetworkError.postValue(true)
             }
-        } catch (e: Exception) {
-            _eventNetworkError.value = true
         }
     }
 
