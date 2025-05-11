@@ -7,6 +7,7 @@
     android:padding="16dp">
 
     <LinearLayout
+        style="?android:attr/buttonBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -14,6 +15,7 @@
 
         <Button
             android:id="@+id/btn_albums"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -21,6 +23,7 @@
 
         <Button
             android:id="@+id/btn_musicians"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"

@@ -32,7 +32,7 @@ class AlbumDetailViewModel(application: Application, private val albumId: Int) :
         try {
             viewModelScope.launch(Dispatchers.Default) {
                 withContext(Dispatchers.IO) {
-                    val data = albumDetailRepository.refreshTracksData(albumId)
+                    val data = albumDetailRepository.refreshData(albumId)
                     _tracks.postValue(data)
                 }
                 _eventNetworkError.postValue(false)
