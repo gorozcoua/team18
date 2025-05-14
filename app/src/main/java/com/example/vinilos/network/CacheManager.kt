@@ -20,6 +20,7 @@ class CacheManager (context: Context){
     private var tracks: HashMap<Int, List<Track>> = hashMapOf()
     private var albums: HashMap<String, List<Album>> = hashMapOf()
     private var musicians: HashMap<String, List<Musician>> = hashMapOf()
+    private var musicianAlbums: HashMap<Int, List<Album>> = hashMapOf()
 
     fun addTracks(albumId: Int, trackList: List<Track>) {
         if (!tracks.containsKey(albumId)) {
@@ -49,5 +50,15 @@ class CacheManager (context: Context){
 
     fun getMusicians(): List<Musician> {
         return musicians["musicians"] ?: emptyList()
+    }
+
+    fun getAlbumsForMusician(musicianId: Int): List<Album> {
+        return musicianAlbums[musicianId] ?: emptyList()
+    }
+
+    fun addAlbumsForMusician(musicianId: Int, albums: List<Album>) {
+        if (!musicianAlbums.containsKey(musicianId)) {
+            musicianAlbums[musicianId] = albums
+        }
     }
 }

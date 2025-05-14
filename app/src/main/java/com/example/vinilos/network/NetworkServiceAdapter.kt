@@ -88,6 +88,24 @@ class NetworkServiceAdapter constructor(context: Context) {
         ))
     }
 
+    suspend fun getAlbumsForMusician(musicianId: Int): List<Album> = suspendCoroutine { cont ->
+        requestQueue.add(getRequest("musicians/$musicianId/albums",
+            { response ->
+                val jsonArray = JSONArray(response)
+                val albums = mutableListOf<Album>()
+                var item: JSONObject?
+                for (i in 0 until jsonArray.length()) {
+                    item = jsonArray.getJSONObject(i)
+                    Log.d("Response", item.toString())
+                    albums.add(Album(albumId = item.getInt("id"), name = item.getString("name"), cover = item.getString("cover"), recordLabel = item.getString("recordLabel"), releaseDate = item.getString("releaseDate"), genre = item.getString("genre"), description = item.getString("description")))
+                }
+                cont.resume(albums)
+            },
+            {
+                cont.resumeWithException(it)
+            }
+        ))
+    }
 
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
         return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)

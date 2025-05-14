@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
+import com.example.vinilos.models.Musician
 import com.example.vinilos.ui.adapters.MusicianAdapter
 import com.example.vinilos.viewmodels.MusicianViewModel
 
@@ -26,15 +27,16 @@ class MusicianFragment : Fragment() {
     ): View {
         val view = inflater.inflate(R.layout.fragment_musician, container, false)
 
-        // Initialize UI elements
         recyclerView = view.findViewById(R.id.musician_list)
         errorMessage = view.findViewById(R.id.error_message)
-        adapter = MusicianAdapter()
+
+        adapter = MusicianAdapter { selectedMusician ->
+            openMusicianDetailFragment(selectedMusician)
+        }
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
 
-        // Safe ViewModel instantiation
         viewModel = ViewModelProvider(
             this,
             MusicianViewModel.Factory(requireActivity().application)
@@ -61,5 +63,21 @@ class MusicianFragment : Fragment() {
                 errorMessage.visibility = View.GONE
             }
         }
+    }
+
+    private fun openMusicianDetailFragment(musician: Musician) {
+        val bundle = Bundle().apply {
+            putInt("musicianId", musician.id)
+            putString("name", musician.name)
+            putString("image", musician.image)
+        }
+
+        val fragment = MusicianDetailFragment()
+        fragment.arguments = bundle
+
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 }
