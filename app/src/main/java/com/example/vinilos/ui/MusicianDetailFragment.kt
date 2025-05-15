@@ -30,7 +30,9 @@ class MusicianDetailFragment : Fragment() {
         val musician = Musician(
             id = args?.getInt("musicianId") ?: 0,
             name = args?.getString("name").orEmpty(),
-            image = args?.getString("image").orEmpty()
+            image = args?.getString("image").orEmpty(),
+            description = args?.getString("description").orEmpty(),
+            birthDate = args?.getString("birthDate").orEmpty(),
         )
 
         // Bind basic musician info to the view

@@ -45,7 +45,9 @@ class DeezerServiceAdapter constructor(context: Context) {
                             Musician(
                                 id = item.getInt("id"),
                                 name = item.getString("name"),
-                                image = item.getString("picture")
+                                image = item.getString("picture"),
+                                description = item.getString("description"),
+                                birthDate = item.getString("birthDate")
                             )
                         )
                     }

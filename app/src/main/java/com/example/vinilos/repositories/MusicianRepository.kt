@@ -4,7 +4,6 @@ import android.app.Application
 import android.util.Log
 import com.example.vinilos.models.Musician
 import com.example.vinilos.network.CacheManager
-import com.example.vinilos.network.DeezerServiceAdapter
 import com.example.vinilos.network.NetworkServiceAdapter
 
 class MusicianRepository (val application: Application){
@@ -14,7 +13,7 @@ class MusicianRepository (val application: Application){
 
         return if (potentialResp.isEmpty()) {
             Log.d("Track Cache decision", "get from network")
-            val musicians = DeezerServiceAdapter.getInstance(application)
+            val musicians = NetworkServiceAdapter.getInstance(application)
                 .getMusicians()
             cache.addMusicians(musicians)
             musicians
