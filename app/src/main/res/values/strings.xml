@@ -6,4 +6,8 @@
 
     <string name="album_cover">Portada del álbum</string>
 
+    <string name="musician_image_desc">Musician profile picture</string>
+    <string name="musician_image">artista</string>
+
+
 </resources>

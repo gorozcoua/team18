@@ -13,7 +13,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.vinilos.R
 import com.example.vinilos.models.Musician
 
-class MusicianAdapter : RecyclerView.Adapter<MusicianAdapter.MusicianViewHolder>() {
+class MusicianAdapter(private val onMusicianClick: (Musician) -> Unit) : RecyclerView.Adapter<MusicianAdapter.MusicianViewHolder>() {
 
     private var musicians: List<Musician> = listOf()
 
@@ -48,6 +48,7 @@ class MusicianAdapter : RecyclerView.Adapter<MusicianAdapter.MusicianViewHolder>
         // Acción al hacer clic en el botón (opcional)
         holder.musicianButton.setOnClickListener {
             // Aquí puedes mostrar detalles, navegar o lanzar un Toast
+            onMusicianClick(musician)
         }
     }
 

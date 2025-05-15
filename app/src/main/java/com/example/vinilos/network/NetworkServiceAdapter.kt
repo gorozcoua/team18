@@ -18,7 +18,7 @@ import kotlin.coroutines.resumeWithException
 
 class NetworkServiceAdapter constructor(context: Context) {
     companion object{
-        const val BASE_URL= "https://backvynils-q6yc.onrender.com/"
+        const val BASE_URL= "https://apimusica-cucyf3bvgfcdaeeq.canadacentral-01.azurewebsites.net/"
         var instance: NetworkServiceAdapter? = null
         fun getInstance(context: Context) =
             instance ?: synchronized(this) {
@@ -40,7 +40,13 @@ class NetworkServiceAdapter constructor(context: Context) {
                 for (i in 0 until resp.length()) {
                     item = resp.getJSONObject(i)
                     Log.d("Response", item.toString())
-                    list.add(Musician(id = item.getInt("id"), name = item.getString("name"), image = item.getString("image")))
+                    list.add(Musician(
+                        id = item.getInt("id"),
+                        name = item.getString("name"),
+                        image = item.getString("image"),
+                        description = item.getString("description"),
+                        birthDate = item.getString("birthDate")
+                    ))
                 }
                 cont.resume(list)
             },
@@ -60,7 +66,14 @@ class NetworkServiceAdapter constructor(context: Context) {
                 for (i in 0 until resp.length()) {
                     item = resp.getJSONObject(i)
                     Log.d("Response", item.toString())
-                    list.add(i, Album(albumId = item.getInt("id"),name = item.getString("name"), cover = item.getString("cover"), recordLabel = item.getString("recordLabel"), releaseDate = item.getString("releaseDate"), genre = item.getString("genre"), description = item.getString("description")))
+                    list.add(i, Album(
+                        albumId = item.getInt("id"),
+                        name = item.getString("name"),
+                        cover = item.getString("cover"),
+                        recordLabel = item.getString("recordLabel"),
+                        releaseDate = item.getString("releaseDate"),
+                        genre = item.getString("genre"),
+                        description = item.getString("description")))
                 }
                 cont.resume(list)
             },
@@ -78,7 +91,10 @@ class NetworkServiceAdapter constructor(context: Context) {
                 for (i in 0 until jsonArray.length()) {
                     item = jsonArray.getJSONObject(i)
                     Log.d("Response", item.toString())
-                    tracks.add(Track(id = item.getInt("id"), name = item.getString("name"), duration = item.getString("duration")))
+                    tracks.add(Track(
+                        id = item.getInt("id"),
+                        name = item.getString("name"),
+                        duration = item.getString("duration")))
                 }
                 cont.resume(tracks)
             },
@@ -88,6 +104,24 @@ class NetworkServiceAdapter constructor(context: Context) {
         ))
     }
 
+    suspend fun getAlbumsForMusician(musicianId: Int): List<Album> = suspendCoroutine { cont ->
+        requestQueue.add(getRequest("musicians/$musicianId/albums",
+            { response ->
+                val jsonArray = JSONArray(response)
+                val albums = mutableListOf<Album>()
+                var item: JSONObject?
+                for (i in 0 until jsonArray.length()) {
+                    item = jsonArray.getJSONObject(i)
+                    Log.d("Response", item.toString())
+                    albums.add(Album(albumId = item.getInt("id"), name = item.getString("name"), cover = item.getString("cover"), recordLabel = item.getString("recordLabel"), releaseDate = item.getString("releaseDate"), genre = item.getString("genre"), description = item.getString("description")))
+                }
+                cont.resume(albums)
+            },
+            {
+                cont.resumeWithException(it)
+            }
+        ))
+    }
 
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
         return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)
