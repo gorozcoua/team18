@@ -32,7 +32,7 @@ class MusicianDetailViewModel(application: Application, private val musicianId: 
         try {
             viewModelScope.launch(Dispatchers.Default) {
                 withContext(Dispatchers.IO) {
-                    val data = musicianDetailRepository.refreshAlbumsForMusician(musicianId)
+                    val data = musicianDetailRepository.refreshData(musicianId)
                     _albums.postValue(data)
                 }
                 _eventNetworkError.postValue(false)
