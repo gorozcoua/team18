@@ -70,6 +70,7 @@ class MusicianFragment : Fragment() {
             putInt("musicianId", musician.id)
             putString("name", musician.name)
             putString("image", musician.image)
+            putString("description", musician.description)
         }
 
         val fragment = MusicianDetailFragment()

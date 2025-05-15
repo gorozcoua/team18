@@ -11,9 +11,11 @@ class MusicianDetailAdapter(private val view: View) {
 
     private val musicianImage: ImageView = view.findViewById(R.id.musician_detail_image)
     private val musicianName: TextView = view.findViewById(R.id.musician_detail_name)
+    private val musicianDescription: TextView = view.findViewById(R.id.musician_detail_description)
 
     fun bind(musician: Musician) {
         Glide.with(view.context).load(musician.image).into(musicianImage)
         musicianName.text = musician.name
+        musicianDescription.text = musician.description
     }
 }
