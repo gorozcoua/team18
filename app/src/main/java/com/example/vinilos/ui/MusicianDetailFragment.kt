@@ -11,13 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
 import com.example.vinilos.models.Musician
 import com.example.vinilos.ui.adapters.MusicianDetailAdapter
-import com.example.vinilos.ui.adapters.AlbumAdapter
+import com.example.vinilos.ui.adapters.MusicianAlbumAdapter
 import com.example.vinilos.viewmodels.MusicianDetailViewModel
 
 class MusicianDetailFragment : Fragment() {
 
     private lateinit var albumsRecyclerView: RecyclerView
-    private lateinit var albumAdapter: AlbumAdapter
+    private lateinit var albumAdapter: MusicianAlbumAdapter
     private lateinit var viewModel: MusicianDetailViewModel
 
     override fun onCreateView(
@@ -39,23 +39,23 @@ class MusicianDetailFragment : Fragment() {
         val detailAdapter = MusicianDetailAdapter(view)
         detailAdapter.bind(musician)
 
-//        // Set up albums (or related info) list
-//        albumsRecyclerView = view.findViewById(R.id.albums_recycler_view)
-//        albumAdapter = AlbumAdapter {}
-//        albumsRecyclerView.apply {
-//            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-//            adapter = albumAdapter
-//        }
-//
+        // Set up albums (or related info) list
+        albumsRecyclerView = view.findViewById(R.id.albums_recycler_view)
+        albumAdapter = MusicianAlbumAdapter (emptyList())
+        albumsRecyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            adapter = albumAdapter
+        }
+
         // ViewModel for this musician
         viewModel = ViewModelProvider(
             this,
             MusicianDetailViewModel.Factory(requireActivity().application, musician.id)
         )[MusicianDetailViewModel::class.java]
-//
-//        viewModel.albums.observe(viewLifecycleOwner) { albums ->
-//            albumAdapter.setAlbums(albums)
-//        }
+
+        viewModel.albums.observe(viewLifecycleOwner) { albums ->
+            albumAdapter.setAlbums(albums)
+        }
 
         return view
     }

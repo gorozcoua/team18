@@ -30,12 +30,22 @@
           <theme>@style/Theme.Vinilos</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_album.xml">
+        <config>
+          <theme>@style/Theme.Vinilos</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_album_musician.xml">
         <config>
           <theme>@style/Theme.Vinilos</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_musician.xml">
+        <config>
+          <theme>@style/Theme.Vinilos</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_musician_album.xml">
         <config>
           <theme>@style/Theme.Vinilos</theme>
         </config>
@@ -51,7 +61,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6321a86-ec9b-407e-8105-59148c426c4d" name="Changes" comment="HU004 Init">
+    <list default="true" id="f6321a86-ec9b-407e-8105-59148c426c4d" name="Changes" comment="apuntar a la url de azure">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/ui/adapters/MusicianAlbumAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_musician_album.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -59,13 +71,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/models/Musician.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/models/Musician.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/network/DeezerServiceAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/network/DeezerServiceAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/network/NetworkServiceAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/network/NetworkServiceAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/repositories/MusicianRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/repositories/MusicianRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/ui/MusicianDetailFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vinilos/ui/MusicianDetailFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_musician_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_musician_detail.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,8 +116,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="Kotlin Class" />
         <option value="layoutResourceFile" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -143,7 +151,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;Android App.app.executor&quot;: &quot;Debug&quot;,
+    &quot;Android App.app.executor&quot;: &quot;Run&quot;,
     &quot;Android Instrumented Tests.AlbumBasicLoadingTest.executor&quot;: &quot;Run&quot;,
     &quot;Android Instrumented Tests.AlbumLoadingTest.executor&quot;: &quot;Run&quot;,
     &quot;Android Instrumented Tests.AlbumNetworkSuccessTest.executor&quot;: &quot;Run&quot;,
@@ -564,10 +572,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Android Instrumented Tests.VerMusicosTest" />
-        <item itemvalue="Android Instrumented Tests.VerAlbumesSinRedTest" />
-        <item itemvalue="Android Instrumented Tests.VerArtistasSinRedTest" />
         <item itemvalue="Android Instrumented Tests.VerAlbumesTest" />
         <item itemvalue="Android Instrumented Tests.VerDetalleAlbumTest" />
+        <item itemvalue="Android Instrumented Tests.VerAlbumesSinRedTest" />
+        <item itemvalue="Android Instrumented Tests.VerArtistasSinRedTest" />
       </list>
     </recent_temporary>
   </component>
@@ -676,7 +684,23 @@
       <option name="project" value="LOCAL" />
       <updated>1747185537870</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="apuntar a la url de azure">
+      <option name="closed" value="true" />
+      <created>1747272775299</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1747272775300</updated>
+    </task>
+    <task id="LOCAL-00014" summary="apuntar a la url de azure">
+      <option name="closed" value="true" />
+      <created>1747272866203</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1747272866204</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -704,7 +728,8 @@
     <MESSAGE value="Glide manejo de cache" />
     <MESSAGE value="HUOO1 manejo de cache" />
     <MESSAGE value="HU004 Init" />
-    <option name="LAST_COMMIT_MESSAGE" value="HU004 Init" />
+    <MESSAGE value="apuntar a la url de azure" />
+    <option name="LAST_COMMIT_MESSAGE" value="apuntar a la url de azure" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
