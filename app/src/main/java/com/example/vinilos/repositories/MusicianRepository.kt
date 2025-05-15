@@ -1,4 +1,4 @@
-package com.example.api_libs.repositories
+package com.example.vinilos.repositories
 
 import android.app.Application
 import android.util.Log

@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.api_libs.repositories.MusicianRepository
+import com.example.vinilos.repositories.MusicianRepository
 import com.example.vinilos.models.Musician
 import kotlinx.coroutines.Dispatchers
 import androidx.lifecycle.viewModelScope
