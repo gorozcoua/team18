@@ -71,6 +71,7 @@ class MusicianFragment : Fragment() {
             putString("name", musician.name)
             putString("image", musician.image)
             putString("description", musician.description)
+            putString("birthDate", musician.birthDate)
         }
 
         val fragment = MusicianDetailFragment()
