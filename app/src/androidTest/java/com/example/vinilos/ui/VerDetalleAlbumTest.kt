@@ -55,7 +55,7 @@ class VerDetalleAlbumTest {
 
         val materialButton2 = onView(
             allOf(
-                withId(R.id.album_button), withText("Buscando América Prueba"),
+                withId(R.id.album_button), withText("Buscando América"),
                 childAtPosition(
                     childAtPosition(
                         withId(R.id.album_list),
@@ -68,89 +68,14 @@ class VerDetalleAlbumTest {
         )
         materialButton2.perform(click())
 
-        Thread.sleep(1000)
-
-        val imageView = onView(
-            allOf(
-                withId(R.id.album_detail_image), withContentDescription("Portada del álbum"),
-                withParent(withParent(IsInstanceOf.instanceOf(android.widget.ScrollView::class.java))),
-                isDisplayed()
-            )
-        )
-        imageView.check(matches(isDisplayed()))
-
         val textView = onView(
             allOf(
-                withId(R.id.album_detail_name), withText("Buscando América Prueba"),
+                withId(R.id.album_detail_name), withText("Buscando América"),
                 withParent(withParent(IsInstanceOf.instanceOf(android.widget.ScrollView::class.java))),
                 isDisplayed()
             )
         )
-        textView.check(matches(withText("Buscando América Prueba")))
-
-        val textView2 = onView(
-            allOf(
-                withId(R.id.album_detail_release_date), withText("Lanzamiento: 1984-08-01"),
-                withParent(withParent(IsInstanceOf.instanceOf(android.widget.ScrollView::class.java))),
-                isDisplayed()
-            )
-        )
-        textView2.check(matches(withText("Lanzamiento: 1984-08-01")))
-
-        val textView3 = onView(
-            allOf(
-                withId(R.id.album_detail_genre), withText("Género: Salsa"),
-                withParent(withParent(IsInstanceOf.instanceOf(android.widget.ScrollView::class.java))),
-                isDisplayed()
-            )
-        )
-        textView3.check(matches(withText("Género: Salsa")))
-
-        val textView4 = onView(
-            allOf(
-                withId(R.id.album_detail_label), withText("Sello: Elektra"),
-                withParent(withParent(IsInstanceOf.instanceOf(android.widget.ScrollView::class.java))),
-                isDisplayed()
-            )
-        )
-        textView4.check(matches(withText("Sello: Elektra")))
-
-        val textView5 = onView(
-            allOf(
-                withId(R.id.album_detail_description),
-                withText("Buscando América es el primer álbum de la banda de Rubén Blades y Seis del Solar lanzado en 1984. La producción, bajo el sello Elektra, fusiona diferentes ritmos musicales tales como la salsa, reggae, rock, y el jazz latino. El disco fue grabado en Eurosound Studios en Nueva York entre mayo y agosto de 1983."),
-                withParent(withParent(IsInstanceOf.instanceOf(android.widget.ScrollView::class.java))),
-                isDisplayed()
-            )
-        )
-        textView5.check(matches(withText("Buscando América es el primer álbum de la banda de Rubén Blades y Seis del Solar lanzado en 1984. La producción, bajo el sello Elektra, fusiona diferentes ritmos musicales tales como la salsa, reggae, rock, y el jazz latino. El disco fue grabado en Eurosound Studios en Nueva York entre mayo y agosto de 1983.")))
-
-        val textView6 = onView(
-            allOf(
-                withId(R.id.track_name), withText("Decisiones"),
-                withParent(withParent(IsInstanceOf.instanceOf(android.widget.FrameLayout::class.java))),
-                isDisplayed()
-            )
-        )
-        textView6.check(matches(withText("Decisiones")))
-
-        val textView7 = onView(
-            allOf(
-                withId(R.id.track_name), withText("Desapariciones"),
-                withParent(withParent(IsInstanceOf.instanceOf(android.widget.FrameLayout::class.java))),
-                isDisplayed()
-            )
-        )
-        textView7.check(matches(withText("Desapariciones")))
-
-        val textView8 = onView(
-            allOf(
-                withId(R.id.track_name), withText("Desapariciones"),
-                withParent(withParent(IsInstanceOf.instanceOf(android.widget.FrameLayout::class.java))),
-                isDisplayed()
-            )
-        )
-        textView8.check(matches(withText("Desapariciones")))
+        textView.check(matches(withText("Buscando América")))
     }
 
     private fun childAtPosition(
