@@ -50,6 +50,8 @@ class VerDetalleMusicoTest {
         )
         materialButton.perform(click())
 
+        Thread.sleep(5000)
+
         val materialButton2 = onView(
             allOf(
                 withId(R.id.musician_button), withText("Rubén Blades"),
@@ -64,8 +66,6 @@ class VerDetalleMusicoTest {
             )
         )
         materialButton2.perform(click())
-
-        Thread.sleep(5000)
 
         val textView = onView(
             allOf(
